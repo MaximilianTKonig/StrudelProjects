@@ -1,0 +1,21 @@
+setGainCurve(x => Math.pow(x, 2))
+samples('github:switchangel/breaks')
+samples('github:switchangel/pad')
+samples('github:tidalcycles/uzu-drumkit')
+
+setCps(170/60/4)
+
+
+$: s("breaks/2")
+  .fit()
+  .orbit(2)
+  .scrub(irand(16).div(16).seg(8)
+  .rib("<30>", 4))
+  .almostNever(ply("1|3|2 4"))
+  ._scope()
+$: s("swpad")
+  .att(.3)
+  .n(4)
+  .note("<F#1@1 F#1@1 A1@1 E1@1>")
+  .phaser(.4).release(1)
+  ._punchcard()
